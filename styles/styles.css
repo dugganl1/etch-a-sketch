@@ -18,3 +18,17 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+.slider-container {
+  width: 960px;
+  margin-bottom: 20px;
+}
+
+.slider {
+  width: 100%;
+}
+
+#sizeValue {
+  display: inline-block;
+  margin-left: 10px;
+}

@@ -1,4 +1,4 @@
-const gridSize = 50;
+const gridSize = 25;
 let isDrawMode = true;
 
 function createGrid(size) {
@@ -21,7 +21,12 @@ function createGrid(size) {
     // Add event listeners for hover effect
     gridItem.addEventListener("mouseenter", () => {
       if (isDrawMode) {
-        gridItem.style.backgroundColor = "red";
+        //gridItem.style.backgroundColor = "red";
+        gridItem.style.backgroundColor = `rgb(${Math.floor(
+          Math.random() * 256
+        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
+          Math.random() * 256
+        )})`;
       } else {
         gridItem.style.backgroundColor = "";
       }
@@ -37,12 +42,22 @@ function toggleMode() {
   toggleButton.textContent = isDrawMode ? "Draw Mode" : "Erase Mode";
 }
 
+function updateGridSize() {
+  const size = this.value;
+  document.getElementById("sizeValue").textContent = `${size} x ${size}`;
+  createGrid(size);
+}
+
 // Create a 16x16 grid by default
 document.addEventListener("DOMContentLoaded", () => {
-  createGrid(gridSize);
-
   const toggleButton = document.getElementById("toggleMode");
   toggleButton.addEventListener("click", toggleMode);
+
+  const slider = document.getElementById("gridSize");
+  slider.addEventListener("input", updateGridSize);
+
+  //Initialize the default 16x16 grid
+  createGrid(gridSize);
 });
 
 // You can call createGrid(n) with different values to change the grid size
