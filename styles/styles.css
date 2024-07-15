@@ -1,0 +1,20 @@
+.container {
+  width: 960px;
+  height: 960px;
+  border: 1px solid darkred;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-item {
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: #ddd;
+  transition: background-color 0.3s ease; /* Add smooth transition */
+}
+
+#toggleMode {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
